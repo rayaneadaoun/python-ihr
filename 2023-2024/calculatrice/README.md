@@ -1,9 +1,11 @@
 # python-ihr
-cours python ihr 
 
+Programme calculatrice
+
+Depuis votre terminal de commande, suivez les etapes suivantes: 
 ## 1 er etape
 ```bash 
-python 3 -m pip install flask
+python3 -m pip install flask
 ```
 
 ## 2eme etape 
