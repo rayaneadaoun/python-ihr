@@ -1,0 +1,8 @@
+iphone13,900,Disponible,iphone.jpeg,smartphone
+clavier,150,Rupture,clavier.jpeg,accessoire
+rolex,25000,Disponible,image1.jpg,montre
+cartier,800,Disponible,image2.jpg,montre
+swisslife,250,Disponible,image3.jpg,montre
+AppleWatch,500,Rupture,image4.jpg,montre
+PC_HP,859,Disponible,pc.jpeg,laptop
+Rinoshield,60,Disponible,mobile.png,accessoire

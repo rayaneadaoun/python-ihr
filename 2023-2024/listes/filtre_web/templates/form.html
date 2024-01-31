@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un article</title>
+</head>
+<body>
+    <h1>Ajouter un article</h1>
+    <form method="POST" action="/add_article">
+        <label for="marque">Marque :</label>
+        <input type="text" id="marque" name="marque" required><br><br>
+
+        <label for="prix">Prix :</label>
+        <input type="number" id="prix" name="prix" required><br><br>
+        
+        <label for="etat">État :</label>
+        <select id="etat" name="etat">
+            <option value="Disponible">Disponible</option>
+            <option value="Rupture">Rupture</option>
+        </select><br><br>
+
+        <label for="image">Image :</label>
+        <select id="image" name="image">
+            {% for filename in filenames %}
+                <option value="{{ filename }}">{{ filename }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="cat">Categories :</label>
+        <select id="cat" name="cat">
+            <option value="smartphone">smartphone</option>
+            <option value="montre">montre</option>
+            <option value="laptop">laptop</option>
+            <option value="accessoire">accessoire</option>
+        </select><br><br>
+
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

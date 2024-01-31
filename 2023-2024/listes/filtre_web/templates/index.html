@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/style.css" rel="stylesheet" />
+    <title>Liste d'articles</title>
+</head>
+<body>
+    <h1>Liste d'articles</h1>
+    <nav>
+    <form action="/filtrer_prix" method="POST">
+        <label for="prix_min">Prix Min :</label>
+        <input type="number" id="prix_min" name="prix_min" required><br><br>
+
+        <label for="prix_max">Prix Max :</label>
+        <input type="number" id="prix_max" name="prix_max" required><br><br>
+
+        <button type="submit">Filtrer Prix</button>
+    </form>
+
+    <form action="/filtrer_cat" method="POST">
+        <label for="cat">Categories :</label>
+        <select id="cat" name="cat">
+            <option value="smartphone">smartphone</option>
+            <option value="montre">montre</option>
+            <option value="laptop">laptop</option>
+            <option value="accessoire">accessoire</option>
+        </select><br><br>
+        <button type="submit">Filtrer Categ</button>
+    </form>
+
+    <div class="boutton">
+    <form action="/clear_articles" method="POST">
+        <button type="submit">Vider les produits</button>
+    </form>
+    <form action="/add" method="GET">
+        <button type="submit">Ajouter Articles</button>
+    </form>
+    <form action="/" method="GET">
+        <button type="submit">Reinitialiser Filtres</button>
+    </form>
+    </div>
+
+    </nav>
+    <div class="catalogue">
+        {% for article in articles %}
+        <div class="article">
+            <img src="images/{{ article[3] }}" alt="test" >
+            <h3>{{ article[0] }}</h3>
+            <p>{{ article[1] }}</p>
+            <div class="availability {% if article[2] == 'Disponible' %}available{% else %}unavailable{% endif %}">{{ article[2] }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
