@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Disponibilités</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .time-slot {
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s;
+        }
+        .time-slot.selected {
+            background-color: #4caf50;
+            color: white;
+        }
+        #confirmationMessage {
+            display: none;
+            text-align: center;
+        }
+        #confirmationMessage button {
+            width: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="formContainer">
+        <form id="availabilityForm">
+            <label for="firstName">Prénom:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            
+            <label for="lastName">Nom:</label>
+            <input type="text" id="lastName" name="lastName" required>
+            
+            <label>Disponibilités:</label>
+            <div id="timeSlots">
+                <div class="time-slot" data-value="9h-10h">9h-10h</div>
+                <div class="time-slot" data-value="10h-11h">10h-11h</div>
+                <div class="time-slot" data-value="11h-12h">11h-12h</div>
+                <div class="time-slot" data-value="12h-13h">12h-13h</div>
+                <div class="time-slot" data-value="13h-14h">13h-14h</div>
+                <div class="time-slot" data-value="14h-15h">14h-15h</div>
+                <div class="time-slot" data-value="15h-16h">15h-16h</div>
+                <div class="time-slot" data-value="16h-17h">16h-17h</div>
+                <div class="time-slot" data-value="17h-18h">17h-18h</div>
+            </div>
+            
+            <button type="button" onclick="submitForm()">Envoyer</button>
+        </form>
+    </div>
+    
+    <div id="confirmationMessage">
+        <p>Votre saisie a bien été prise en compte.</p>
+        <button onclick="resetForm()">Saisir à nouveau</button>
+    </div>
+
+    <script>
+        document.querySelectorAll('.time-slot').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('selected');
+            });
+        });
+
+        function submitForm() {
+            let firstName = document.getElementById('firstName').value;
+            let lastName = document.getElementById('lastName').value;
+            let selectedSlots = Array.from(document.querySelectorAll('.time-slot.selected'))
+                                .map(el => el.getAttribute('data-value'));
+            
+            let data = {
+                firstName: firstName,
+                lastName: lastName,
+                timeSlots: selectedSlots
+            };
+            
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                document.getElementById('formContainer').style.display = 'none';
+                document.getElementById('confirmationMessage').style.display = 'block';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        function resetForm() {
+            document.getElementById('availabilityForm').reset();
+            document.querySelectorAll('.time-slot').forEach(item => {
+                item.classList.remove('selected');
+            });
+            document.getElementById('formContainer').style.display = 'block';
+            document.getElementById('confirmationMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
