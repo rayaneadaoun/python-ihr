@@ -58,9 +58,9 @@ def filtrer_prix():
     prix_max = int(request.form['prix_max'])
     # Filtrez les articles en fonction du prix
     res=[]
-    #################################
-    # Ajouter le code python pour Filtrer les articles en fonction du prix
-    ###################################
+    for i in articles:
+        if ( (i[1] >=  prix_min) and (i[1] <= prix_max)):
+            res.append(i)
     return render_template('index.html', articles=res)
 
 @app.route('/filtrer_cat', methods=['POST'])
@@ -68,9 +68,9 @@ def filtrer_cat():
     categorie = request.form['cat']
     # Filtrez les articles en fonction du prix
     res=[]
-    ################################
-    # Ajouter le code python pour filtrer par categorie
-    ################################
+    for i in articles:
+        if(i[4] == categorie ):
+            res.append(i)
     return render_template('index.html', articles=res)
 
 @app.route('/clear_articles', methods=['POST'])
@@ -88,4 +88,4 @@ def images(filename):
     return send_from_directory(IMAGE_DIRECTORY, filename)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
