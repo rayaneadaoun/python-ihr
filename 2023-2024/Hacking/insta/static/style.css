@@ -1,0 +1,202 @@
+body {
+    background-color: #fafafa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #3897f0;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 350px;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 40px 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container img {
+    width: 175px;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    font-size: 14px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background-color: #fafafa;
+}
+
+.login-container input[type="submit"] {
+    background-color: #3897f0;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #3071a9;
+}
+
+.flash.error {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.posts, .conversations {
+    width: 45%;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    margin: 10px;
+}
+
+.posts h3, .conversations h3 {
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.posts {
+    margin-right: 10px;
+}
+
+.post, .conversation {
+    margin-bottom: 20px;
+}
+
+.post img, .conversation img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.post p, .conversation p {
+    margin: 5px 0;
+}
+
+.conversation-profile {
+    display: flex;
+    align-items: center;
+}
+
+.conversation-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.show {
+    display: block;
+}
+
+/* Profile Picture and Dropdown Menu */
+
+header h2 {
+    margin: 0;
+}
+
+.profile-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #f4f4f4;
+}
+
+.profile-info {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.profile-info h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}

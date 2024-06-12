@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ user_info.name }} - Boîte Mail</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="mail-container">
+    <div class="mail-header">
+      <h2>{{ user_info.name }} - Boîte Mail</h2>
+    </div>
+    <div class="mail-list">
+      {% for mail in mails %}
+        <div class="mail-item">
+          <p><strong>Expéditeur:</strong> {{ mail['sender'] }}</p>
+          <p><strong>Objet:</strong> {{ mail['subject'] }}</p>
+          <p><strong>Date:</strong> {{ mail['date'] }}</p>
+          <p>{{ mail['content'] }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
