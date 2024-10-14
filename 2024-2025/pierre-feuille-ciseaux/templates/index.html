@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierre-Feuille-Ciseau</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: inline-block;
+            margin: 20px auto;
+        }
+        select, input[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Jeu de Pierre-Feuille-Ciseau</h1>
+
+<form method="POST">
+    <div>
+        <label for="player1">Joueur 1 :</label>
+        <select id="player1" name="player1">
+            <option value="Pierre">Pierre</option>
+            <option value="Feuille">Feuille</option>
+            <option value="Ciseau">Ciseau</option>
+        </select>
+    </div>
+    <div>
+        <label for="player2">Joueur 2 :</label>
+        <select id="player2" name="player2">
+            <option value="Pierre">Pierre</option>
+            <option value="Feuille">Feuille</option>
+            <option value="Ciseau">Ciseau</option>
+        </select>
+    </div>
+    <input type="submit" value="Jouer">
+</form>
+
+{% if winner %}
+    <div class="result">
+        <p>{{ winner }}</p>
+    </div>
+{% endif %}
+
+</body>
+</html>
