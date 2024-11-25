@@ -18,7 +18,7 @@ def move():
 
     # Déplacer de n cases (tirage aléatoire entre 1 et 6)
     n = random.randint(1, 20)
-    
+     
     player_position = (player_position + n) % len(plateau)  # Boucler sur le plateau
     player_money += plateau[player_position]  # Gagner ou perdre de l'argent selon la case
 
